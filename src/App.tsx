@@ -1,5 +1,7 @@
 import { Grid, GridItem, Show } from "@chakra-ui/react";
 import Navbar from "./components/Navbar";
+
+
 function App() {
   return <Grid templateAreas={{
     base:`"nav" "main"`,
@@ -7,11 +9,12 @@ function App() {
   }}>
     <GridItem area="nav">
       <Navbar/>
+
     </GridItem>
     <Show above="lg"> {/* Shows for >=large */}
-    <GridItem area="aside" bg="pink">Aside</GridItem>
+    <GridItem area="aside">Aside</GridItem>
     </Show>
-    <GridItem area="main" bg="teal">Main</GridItem>
+    <GridItem area="main">Main</GridItem>
   </Grid>
 }
 export default App;
