@@ -17,5 +17,4 @@ const Emoji = ({ rating }: Props) => {
   };
   return <Image {...emojiMap[rating]} boxSize="25px" marginTop={1} />;
 };
-
-export default Emoji;
+export default Emoji
