@@ -6,6 +6,7 @@ import {
   ListItem,
   Spinner,
   Button,
+  Heading,
 } from "@chakra-ui/react";
 interface Props {
    onSelectGenre: (genre: Genre) => void;
@@ -16,16 +17,26 @@ const GenreList = ({selectedGenre, onSelectGenre}: Props) => {
   if (loading) return <Spinner />;
   if (error) return null;
   return (
+    <>
+    <Heading
+    fontSize="2xl"
+    marginBottom={3}
+    >
+      Genres
+    </Heading>
     <List>
       {data.map((genre) => (
         <ListItem py={1} key={genre.id}>
           <HStack>
             <Image
+              objectFit="cover"
               boxSize="32px"
               borderRadius={8}
               src={genre.image_background}
             />
             <Button
+              whiteSpace="normal"
+              textAlign="left"
               onClick={() => onSelectGenre(genre)}
               fontWeight={genre.id===selectedGenre?.id?"bold":"normal"}
               variant="link"
@@ -37,6 +48,7 @@ const GenreList = ({selectedGenre, onSelectGenre}: Props) => {
         </ListItem>
       ))}
     </List>
+    </>
   );
 };
 export default GenreList;
